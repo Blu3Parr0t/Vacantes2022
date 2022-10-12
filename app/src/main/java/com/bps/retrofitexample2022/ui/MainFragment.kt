@@ -9,15 +9,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import com.bps.retrofitexample2022.MainActivity
 import com.bps.retrofitexample2022.R
 import com.bps.retrofitexample2022.data.network.repo.OMDBRepo
 import com.bps.retrofitexample2022.databinding.FragmentMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainFragment : Fragment() {
 
-    private lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by viewModels()
     private lateinit var binding: FragmentMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +38,10 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = MainViewModel(MainActivity.ourApplication, OMDBRepo.provideOMDBRepoApi())
+
+//        tempViewModel.timberTime()
+
+//        viewModel = MainViewModel.provideViewModel(this.activity?.application)
         viewModel.getMovieByName("it")
 
         viewModel.movie.observe(viewLifecycleOwner) {

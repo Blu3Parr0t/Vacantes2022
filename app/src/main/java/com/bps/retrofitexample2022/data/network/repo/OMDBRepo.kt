@@ -8,7 +8,7 @@ interface OMDBRepo {
     suspend fun getMovieByName(movieName: String): Result<MovieModel?>
 
     companion object {
-        fun provideOMDBRepoApi() = OMDBRepoImpl()
+//        fun provideOMDBRepoApi() = OMDBRepoImpl()
         const val SUCcESS = 1
         const val FAiLURE = -1
         const val IN_PrOGRESS = 0
