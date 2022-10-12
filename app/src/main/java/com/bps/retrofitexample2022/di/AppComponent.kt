@@ -20,4 +20,7 @@ object AppComponent {
     @Provides
     fun provideCoroutineIODispatcher(): CoroutineDispatcher =
         Dispatchers.IO
+
+    //TODO Claudia
+    //fun provideGlideCompoenent(): Glide
 }
